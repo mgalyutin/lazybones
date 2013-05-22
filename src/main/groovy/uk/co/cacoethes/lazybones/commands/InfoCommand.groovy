@@ -27,6 +27,8 @@ USAGE: info <template>
 
     @Override
     int execute(List<String> args, Map globalOptions, ConfigObject config) {
+        def cmdOptions = parseArguments(args, 1..1)
+        if (!cmdOptions) return 1
 
         log.info "Fetching package information for '${args[0]}' from Bintray"
 
